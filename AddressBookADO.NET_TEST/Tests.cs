@@ -65,5 +65,42 @@ namespace AddressBookADO.NET_TEST
             //assert for comparing list
             CollectionAssert.AreEqual(contactDetailsActual, contactDetailsExpected);
         }
+
+
+        /// <summary>
+        /// Checkings for getting contact details for particular state. UC19
+        /// </summary>
+        [TestMethod]
+        public void CheckingForGettingContactDetailsForParticularState()
+        {
+            //creating list for expected output
+            List<AddressBookContactDetails> contactDetailsExpected = new List<AddressBookContactDetails>();
+            //adding data
+            contactDetailsExpected.Add(new AddressBookContactDetails { firstName = "Sai", lastName = "Chandu", address = "Chanda Nagar", city = "Hyderabad", state = "Telangana", zip = 540081, phoneNo = 9909339211, eMail = "saichandu998@gmail.com" });
+            //instatiating object for address book operations
+            AddressBookOperations addressBookOperations = new AddressBookOperations();
+            //getting actual contact list from address book operations-getting contact details from particular date range
+            List<AddressBookContactDetails> contactDetailsActual = addressBookOperations.GetAllContactDetailsWithConditions();
+            //assert for comparing list
+            CollectionAssert.AreEqual(contactDetailsActual, contactDetailsExpected);
+        }
+        /// <summary>
+        /// Checkings for getting contact details for particular city. UC19
+        /// </summary>
+        [TestMethod]
+        public void CheckingForGettingContactDetailsForParticularCity()
+        {
+            //creating list for expected output
+            List<AddressBookContactDetails> contactDetailsExpected = new List<AddressBookContactDetails>();
+            //adding data
+            contactDetailsExpected.Add(new AddressBookContactDetails { firstName = "Sumit", lastName = "Verma", address = "Ambika Nagar", city = "Aurangabad", state = "Maharashtra", zip = 125121, phoneNo = 8570934858, eMail = "sumit.v99@gmail.com" });
+
+            //instatiating object for address book operations
+            AddressBookOperations addressBookOperations = new AddressBookOperations();
+            //getting actual contact list from address book operations-getting contact details from particular date range
+            List<AddressBookContactDetails> contactDetailsActual = addressBookOperations.GetAllContactDetailsWithConditions();
+            //assert for comparing list
+            CollectionAssert.AreEqual(contactDetailsActual, contactDetailsExpected);
+        }
     }
 }
